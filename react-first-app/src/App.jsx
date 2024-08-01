@@ -9,22 +9,22 @@ function App() {
   const [tasks, setTasks] = useState([]);
   const [editingTask, setEditingTask] = useState(null);
 
-  // Aggiungi una nuova attività
+  //Add a new task 
   const addTask = (task) => {
     setTasks([...tasks, { id: Date.now(), text: task }]);
   };
 
-  // Elimina un'attività
+  //delete a task 
   const deleteTask = (id) => {
     setTasks(tasks.filter(task => task.id !== id));
   };
 
-  // Inizia a modificare un'attività
+  // start to upgrade a task 
   const startEditing = (task) => {
     setEditingTask(task);
   };
 
-  // Modifica un'attività esistente
+  //update  a task 
   const editTask = (updatedTask) => {
     setTasks(tasks.map(task => task.id === updatedTask.id ? updatedTask : task));
     setEditingTask(null);

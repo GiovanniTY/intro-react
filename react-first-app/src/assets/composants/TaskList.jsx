@@ -2,7 +2,7 @@ import React from 'react';
 
 function TaskList({ tasks, onDelete, onEdit, onToggleCompletion}) {
   return (
-    <ul className='ul-task'>
+    <ul>
       {tasks.map(task => (
         <li key={task.id}>
         <input type="checkbox" 
