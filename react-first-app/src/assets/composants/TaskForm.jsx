@@ -1,43 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
-function TaskForm({ onAdd, onEdit, editingTask, onCancel }) {
-  const [taskText, setTaskText] = useState('');
-
-  useEffect(() => {
-    if (editingTask) {
-      setTaskText(editingTask.text);
-    } else {
-      setTaskText('');
+ export default function TaskForm({onAddTask}) {
+  const inputRef = useRef();
+  function handleClick(event) {
+    event.preventDefault();
+    const inputElement = inputRef.current;
+    if (inputElement.value.trim() !== "") {
+      onAddTask(inputElement.value);
+      inputElement.value = "";
     }
-  }, [editingTask]);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (taskText.trim() ==='') {
-      return;
-    }
-
-    
-    if (editingTask) {
-      onEdit({ ...editingTask, text: taskText });
-    } else {
-      onAdd(taskText);
-    }
-    setTaskText('');
-  };
-
+  }
   return (
-    <form onSubmit={handleSubmit}>
-      <input 
-        type="text" 
-        value={taskText} 
-        onChange={(e) => setTaskText(e.target.value)} 
-        placeholder="Add or edit task"
+    <div>
+    <form>
+      <input
+      ref={inputRef}
+      type='text' 
+      className='input-text'
+      placeholder='add a task'
       />
-      <button type="submit">{editingTask ? 'Save' : 'Add'}</button>
-      {editingTask && <button type="button" onClick={onCancel}>Cancel</button>}
-    </form>
+      <button onClick={handleClick}>Add todo</button>
+          </form>
+        </div>
   );
 }
 
-export default TaskForm;
+
