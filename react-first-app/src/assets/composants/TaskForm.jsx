@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 
- export default function TaskForm({onAddTask}) {
+ export default function TaskForm({onAddTask, deleteTask}) {
   const inputRef = useRef();
+  
+  
   function handleClick(event) {
     event.preventDefault();
     const inputElement = inputRef.current;
@@ -9,6 +11,7 @@ import React, { useState, useEffect, useRef } from 'react';
       onAddTask(inputElement.value);
       inputElement.value = "";
     }
+
   }
   return (
     <div>
@@ -24,5 +27,3 @@ import React, { useState, useEffect, useRef } from 'react';
         </div>
   );
 }
-
-
