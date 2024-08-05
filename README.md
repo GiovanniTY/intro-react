@@ -59,8 +59,6 @@ Renders the list of tasks. Provides UI elements to edit, delete, and toggle the 
 
 Feel free to submit issues, feature requests, or pull requests. Contributions are welcome!
 
-## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 
