@@ -2,7 +2,7 @@
 
 A simple Todo List application built with React. This app allows users to manage tasks with functionalities to add, edit, delete, and mark tasks as complete. The tasks are stored in the browser's local storage, so they persist across page reloads.
 
-![Alt text](react-first-app/src/assets/img/todo-list.png)
+![![Todo List App Screenshot]](react-first-app/src/assets/img/todo-list.png)
 
 
 ## Features
